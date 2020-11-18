@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <!-- ensure proper rendering and touch zooming -->
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS file -->
+    <link rel="stylesheet" href="timer.css">
+
+    <!--Import JS file-->
+    <script src="timer.js"></script>
+
+    <!-- load fonts awesome -->
+    <script src="https://kit.fontawesome.com/a1be6c75b5.js" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <!-- load Jquery libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    
+    <!--favicon-->
+    <link rel='icon' href='#' type='image/x-icon' />
+
+    <title>Pomodoro Timer</title>
+
+<!-- J query -->
+
+    <script>
+        $(document).ready(function() {
+            initialize();
+
+       
+        });
+    </script>
+
+</head>
+
+<body>
+
+    <!--highest level container-->
+    <div class="container-sm mt-5 pb-2" id="calc">
+        
+            <h4>Pomodoro Timer </h4>
+
+            <div class = "dispbox">
+                <input class = "display" id = "idans" disabled></input>
+                <div class = "display" type = "text" id = "iddisp"  ></div>
+            </div>
+
+            <div class=" mb-2">
+                <button  class="btnclr" id="Escape" onclick="updateFormula(this.id)">A/C</button>
+                <button type="button" class="btspecial" id="%" onclick="updateFormula(this.id)">%</button>
+                <button type="button" class="btspecial" id="pn" onclick="updateFormula(this.id)">+/-</button>
+                <button type="button" class="btnop" id="/" onclick="updateFormula(this.id)">/</button>
+            </div>
+
+        <div class="mb-2">
+            <button class="btnnum" id="7" onclick="updateFormula(this.id)">7</button>
+            <button type="button" class="btnnum" id="8" onclick="updateFormula(this.id)">8</button>
+            <button type="button" class="btnnum" id="9" onclick="updateFormula(this.id)">9</button>
+            <button type="button" class="btnop" id="*" onclick="updateFormula(this.id)">X</button>
+        </div>
+
+        <div class="mb-2">
+            <button type="button" class="btnnum" id="4" onclick="updateFormula(this.id)">4</button>
+            <button type="button" class="btnnum" id="5" onclick="updateFormula(this.id)">5</button>
+            <button type="button" class="btnnum" id="6" onclick="updateFormula(this.id)">6</button>
+            <button type="button" class="btnop" id="-" onclick="updateFormula(this.id)">-</button>
+        </div>
+
+        <div class="mb-2">
+            <button type="button" class="btnnum" id="1" onclick="updateFormula(this.id)">1</button>
+            <button type="button" class="btnnum" id="2" onclick="updateFormula(this.id)">2</button>
+            <button type="button" class="btnnum" id="3" onclick="updateFormula(this.id)">3</button>
+            <button type="button" class="btnop" id="+" onclick="updateFormula(this.id)">+</button>
+        </div>
+
+        <div class="mb-2">
+            <button type="button" class="btnnum" id="0" onclick="updateFormula(this.id)">0</button>
+            <button type="button" class="btnnum" id="." onclick="updateFormula(this.id)">.</button>
+            <button type="button" class="btnnum" id="Backspace" onclick="updateFormula(this.id)"><i class="fas fa-chevron-left"></i></button>
+            <button type="button" class="btneq" id="Enter" onclick="updateFormula(this.id)">=</button>
+        </div>
+
+    </div>
+
+</body>
+

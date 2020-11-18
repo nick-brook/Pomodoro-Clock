@@ -1,0 +1,58 @@
+
+/* Import poppins font */
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:200i,400&display=swap');
+
+#calc {
+        max-width: 300px;
+        background-color: rgb(243, 243, 243);
+        border-style:solid;
+        border-radius: 10px;
+        }
+
+.dispbox{border-width: 3px;
+        border-color:black;
+        border-style: ridge;
+        margin-bottom: 20px;
+        margin-right:7px;
+        display:flex;
+        flex-direction: column;
+        }
+
+.display{width: 100%;
+        padding-right: 10px;
+        background-color:rgba(135, 206, 250, 0.719);
+        text-align: right; 
+        font-size: 0.8rem;
+        }
+
+#idans{font-size: 1.6rem;
+        border:none;  
+        }
+
+#iddisp{border:none;
+        border-top-style: solid;
+        border-top-width: 1px;
+        min-height: 25px;
+        overflow: auto;
+        overflow-x: hidden;
+        }
+
+button{width:23%;
+        height: 45px;
+        border-color: black;
+        border-style: solid;
+        border-width: 2px;
+        }
+
+.btnnum{background-color:rgb(235, 222, 192);
+        }
+
+.btnclr{background-color:rgb(255, 169, 169);
+        }
+
+.btnop{background-color:rgb(216, 213, 213);
+        }
+
+.btneq{background-color:rgb(255, 142, 37);
+        }
