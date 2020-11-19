@@ -45,50 +45,56 @@
 <body>
 
     <!--highest level container-->
-    <div class="container-sm mt-5 pb-2" id="calc">
+    <div class="container-sm mt-5 pb-3 pt-3 box" id="pomodoro">
         
-            <h4>Pomodoro Timer </h4>
+            <h4 class = "mb-3" id = "title">Pomodoro Timer </h4>
 
-            <div class = "dispbox">
-                <input class = "display" id = "idans" disabled></input>
-                <div class = "display" type = "text" id = "iddisp"  ></div>
+            <div class = "timer-boxes mb-3">
+
+                <div class = "timer-box" id = "work-time">
+
+                    <h6 class = "timer-title">Work Time</h6>
+
+                    <div class = "controls" id = "work-controls">
+                        <i class="fas fa-plus timer-icon" id ="work-increment"></i>
+                        <div class = "time-length" id = "work-time">25 
+                        </div>
+                        <i class="fas fa-minus timer-icon" id ="work-increment"></i>
+                    </div>
+
+                </div>
+
+                <div class = "timer-box" id = "work-time">
+
+                    <h6 class = "timer-title">Break Time</h6>
+
+                    <div class = "controls" id = "work-controls">
+                        <i class="fas fa-plus timer-icon" id ="work-increment"></i>
+                        <div class = "time-length" id = "work-time">5 
+                        </div>
+                        <i class="fas fa-minus timer-icon" id ="work-increment"></i>
+                    </div>
+
+                </div>
+                
             </div>
 
-            <div class=" mb-2">
-                <button  class="btnclr" id="Escape" onclick="updateFormula(this.id)">A/C</button>
-                <button type="button" class="btspecial" id="%" onclick="updateFormula(this.id)">%</button>
-                <button type="button" class="btspecial" id="pn" onclick="updateFormula(this.id)">+/-</button>
-                <button type="button" class="btnop" id="/" onclick="updateFormula(this.id)">/</button>
+            <div class = "timer-box" id = "time-left-box">
+
+                    <h6 class = "timer-title" id = "session-level">Work Time Left</h6>
+
+                    
+                        
+                        <p class = "time-left-length" id = "session-length">25 : 00 </p>
+
+                        <div id = "time-controls">
+                            <i class="fas fa-play timer-icon" id = "start-stop"></i>
+                            <i class="fas fa-undo timer-icon" id = "reset"></i>
+                        </div>
+
+                    
             </div>
-
-        <div class="mb-2">
-            <button class="btnnum" id="7" onclick="updateFormula(this.id)">7</button>
-            <button type="button" class="btnnum" id="8" onclick="updateFormula(this.id)">8</button>
-            <button type="button" class="btnnum" id="9" onclick="updateFormula(this.id)">9</button>
-            <button type="button" class="btnop" id="*" onclick="updateFormula(this.id)">X</button>
-        </div>
-
-        <div class="mb-2">
-            <button type="button" class="btnnum" id="4" onclick="updateFormula(this.id)">4</button>
-            <button type="button" class="btnnum" id="5" onclick="updateFormula(this.id)">5</button>
-            <button type="button" class="btnnum" id="6" onclick="updateFormula(this.id)">6</button>
-            <button type="button" class="btnop" id="-" onclick="updateFormula(this.id)">-</button>
-        </div>
-
-        <div class="mb-2">
-            <button type="button" class="btnnum" id="1" onclick="updateFormula(this.id)">1</button>
-            <button type="button" class="btnnum" id="2" onclick="updateFormula(this.id)">2</button>
-            <button type="button" class="btnnum" id="3" onclick="updateFormula(this.id)">3</button>
-            <button type="button" class="btnop" id="+" onclick="updateFormula(this.id)">+</button>
-        </div>
-
-        <div class="mb-2">
-            <button type="button" class="btnnum" id="0" onclick="updateFormula(this.id)">0</button>
-            <button type="button" class="btnnum" id="." onclick="updateFormula(this.id)">.</button>
-            <button type="button" class="btnnum" id="Backspace" onclick="updateFormula(this.id)"><i class="fas fa-chevron-left"></i></button>
-            <button type="button" class="btneq" id="Enter" onclick="updateFormula(this.id)">=</button>
-        </div>
-
+    
     </div>
 
 </body>
