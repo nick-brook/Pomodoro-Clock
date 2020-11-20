@@ -36,7 +36,44 @@
         $(document).ready(function() {
             initialize();
 
-       
+        $("#pause").hide()
+            
+        $("#pause").click(function() {
+                pauseTimer()
+                $("#start-stop").show()
+                $("#pause").hide()
+            });
+
+        $("#start-stop").click(function() {
+                playTimer()
+                $("#start-stop").hide()
+                $("#pause").show()
+            });
+
+
+        $("#work-increment").click(function() {
+                incDec(true,true)
+            });
+
+        $("#work-decrement").click(function() {
+                incDec(false,true)
+            });
+
+        $("#break-increment").click(function() {
+                incDec(true,false)
+            });
+
+        $("#break-decrement").click(function() {
+                incDec(false,false)
+            });
+
+        $("#reset").click(function() {
+                pauseTimer();
+                initialize();
+                 $("#start-stop").show()
+                $("#pause").hide()
+            });
+
         });
     </script>
 
@@ -51,28 +88,28 @@
 
             <div class = "timer-boxes mb-3">
 
-                <div class = "timer-box" id = "work-time">
+                <div class = "timer-box" id = "work-time-box">
 
                     <h6 class = "timer-title">Work Time</h6>
 
                     <div class = "controls" id = "work-controls">
                         <i class="fas fa-plus timer-icon" id ="work-increment"></i>
-                        <div class = "time-length" id = "work-time">25 
+                        <div class = "time-length" id = "work-time"> 
                         </div>
-                        <i class="fas fa-minus timer-icon" id ="work-increment"></i>
+                        <i class="fas fa-minus timer-icon" id ="work-decrement"></i>
                     </div>
 
                 </div>
 
-                <div class = "timer-box" id = "work-time">
+                <div class = "timer-box" id = "break-time-box">
 
                     <h6 class = "timer-title">Break Time</h6>
 
                     <div class = "controls" id = "work-controls">
-                        <i class="fas fa-plus timer-icon" id ="work-increment"></i>
-                        <div class = "time-length" id = "work-time">5 
+                        <i class="fas fa-plus timer-icon" id ="break-increment"></i>
+                        <div class = "time-length" id = "break-time"> 
                         </div>
-                        <i class="fas fa-minus timer-icon" id ="work-increment"></i>
+                        <i class="fas fa-minus timer-icon" id ="break-decrement"></i>
                     </div>
 
                 </div>
@@ -81,14 +118,13 @@
 
             <div class = "timer-box" id = "time-left-box">
 
-                    <h6 class = "timer-title" id = "session-level">Work Time Left</h6>
+                    <h6 class = "timer-title" id = "session-level"></h6>
 
-                    
-                        
-                        <p class = "time-left-length" id = "session-length">25 : 00 </p>
+                        <p class = "time-left-length" id = "session-length"> </p>
 
                         <div id = "time-controls">
                             <i class="fas fa-play timer-icon" id = "start-stop"></i>
+                            <i class="fas fa-pause timer-icon" id = "pause"></i>
                             <i class="fas fa-undo timer-icon" id = "reset"></i>
                         </div>
 
