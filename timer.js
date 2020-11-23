@@ -8,47 +8,41 @@ var timeObj = {
             "play" : false,
 } ;
 
-var timerChange
+const audioObj = new Audio('https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav');
+
+var timerChange;
 
 
 
 
 function initialize() {
 
-
     // initialize timeObj
         timeObj.breakTime = 5;
         timeObj.workTime = 25;
         timeObj.breakTimeLeft = 300;
         timeObj.workTimeLeft = 1500;
+        timeObj.work = true;
+        timeObj.play = true;
 
-    //  if playing stop timer
-
-    if (timeObj.playplay){
-
-    }
-
-    timeObj.work = true;
-    timeObj.play = true;
+    // stop the beep if playing
+    audioObj.pause();
 
 // update display
     updateDisp(timeObj)
-
+    document.getElementById("session-length").style.color = "black"
 }
 
-// update display 
+// update display function
 function updateDisp(locTimeObj) {
     
+    var dispStr = ""
+
     // update break and work time
     document.getElementById("work-time").innerHTML = locTimeObj.workTime;
     document.getElementById("break-time").innerHTML = locTimeObj.breakTime;
 
-    // calculate, format and display time left
-
     // if work phase get work time left else break time left
-
-    var dispStr = ""
-
     if (locTimeObj.work){
         dispStr = locTimeObj.workTimeLeft
         document.getElementById("session-level").innerHTML = "Work Time Left"
@@ -58,17 +52,22 @@ function updateDisp(locTimeObj) {
         document.getElementById("session-level").innerHTML = "Break Time Left"
     }
 
+    changeColour(dispStr)
+
+    // define minutes and seconds left and dipslay in mm:ss format
     var minutes = Math.floor(dispStr / 60);
     minutes = (minutes < 10 ? "0" + minutes : minutes);
 
     var seconds = (dispStr % 60) ;
      seconds = (seconds < 10 ? "0" + seconds : seconds);
 
-    dispStr = minutes + " : " + seconds
+    dispStr = minutes + ":" + seconds
 
     document.getElementById("session-length").innerHTML = dispStr;
+    
 }
 
+// increment / decrement work or break time
 function incDec(inc,wrkBrk) {
 
     if (wrkBrk){
@@ -80,12 +79,15 @@ function incDec(inc,wrkBrk) {
         timeObj.breakTimeLeft = timeObj.breakTime * 60;
     }
 
+
     updateDisp(timeObj)
 
 }
 
+// check it is valid increment
 function validIncDec(inc,time) {
 
+    // can't increment above 1 hour
     if (inc){
         if (time < 60){
             return time + 1
@@ -94,6 +96,7 @@ function validIncDec(inc,time) {
             return time
         }
     }
+    // can't decrement below 1 min
     else{
         if (time < 1){
             return time 
@@ -108,27 +111,46 @@ function playTimer(){
 
     timeObj.play = true;
     timerChange = setInterval(updateTimeLeft, 1000);
-
 }
 
 function updateTimeLeft(){
 
+    //if working phase decrement time left and update display else break time
     if (timeObj.work){
-        timeObj.workTimeLeft = timeObj.workTimeLeft - 1
-        updateDisp(timeObj)
+        timeObj.workTimeLeft = timeObj.workTimeLeft - 1;
     }
     else{
-        timeObj.breakTimeLeft = timeObj.breakTimeLeft - 1
-        updateDisp(timeObj)
+        timeObj.breakTimeLeft = timeObj.breakTimeLeft - 1;
     }
 
+  // when timer finshed
+
+    if (timeObj.workTimeLeft < 0 && timeObj.work){
+            audioObj.play();
+            timeObj.work = false;
+            timeObj.workTimeLeft = timeObj.workTime * 60;
+        }
+    
+    if (timeObj.breakTimeLeft < 0 && !timeObj.work){
+            audioObj.play();
+            timeObj.work = true;
+            timeObj.breakTimeLeft = timeObj.breakTime * 60;
+        }
+
+    updateDisp(timeObj)
 }
 
-
+// change colour of time left it 1min or less
+function changeColour(time){
+    if (time <= 60){
+        document.getElementById("session-length").style.color = "red";
+    }
+    else{
+        document.getElementById("session-length").style.color = "black";
+    }
+}
 
 function pauseTimer(){
     timeObj.play = false;
     clearInterval(timerChange);
-
-
 }

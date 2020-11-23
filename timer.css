@@ -6,6 +6,7 @@
 .box{   
         background-color: rgb(187, 255, 255);
         border-style: solid;
+        border-width: thick;
         border-radius: 15px;
         display: flex;
         flex-direction: column;
@@ -18,13 +19,13 @@
 
 .controls{
         display: flex;
-        flex-direction: column;
+        justify-content: space-around;
        }
 
 .timer-boxes{
         display: flex;
         width:90%;
-        justify-content: space-around;
+        justify-content:space-between;
         
         
 }
