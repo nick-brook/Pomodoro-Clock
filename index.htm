@@ -22,7 +22,7 @@
     <!-- load Jquery libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-  <!-- Bootstrap -->
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     
     <!--favicon-->
@@ -49,7 +49,6 @@
                 $("#start-stop").hide()
                 $("#pause").show()
             });
-
 
         $("#work-increment").click(function() {
                 incDec(true,true)
@@ -84,52 +83,51 @@
     <!--highest level container-->
     <div class="container-sm mt-5 pb-3 pt-3 box" id="pomodoro">
         
-            <h3 class = "mb-3" id = "title">Pomodoro Timer </h3>
+        <h3 class = "mb-3" id = "title">Pomodoro Timer </h3>
 
-            <div class = "timer-boxes mb-3">
+        <div class = "timer-boxes mb-3">
 
-                <div class = "timer-box" id = "work-time-box">
+            <div class = "timer-box" id = "work-time-box">
 
-                    <h6 class = "timer-title">Work Time</h6>
+                <h6 class = "timer-title">Work Time</h6>
 
-                    <div class = "controls" id = "work-controls">
-                        <i class="fas fa-plus timer-icon" id ="work-increment"></i>
-                        <div class = "time-length" id = "work-time"> 
-                        </div>
-                        <i class="fas fa-minus timer-icon" id ="work-decrement"></i>
+                <div class = "controls" id = "work-controls">
+                    <i class="fas fa-plus timer-icon" id ="work-increment"></i>
+                    <div class = "time-length" id = "work-time"> 
                     </div>
-
+                    <i class="fas fa-minus timer-icon" id ="work-decrement"></i>
                 </div>
 
-                <div class = "timer-box" id = "break-time-box">
+            </div>
 
-                    <h6 class = "timer-title">Break Time</h6>
+            <div class = "timer-box" id = "break-time-box">
 
-                    <div class = "controls" id = "break-controls">
-                        <i class="fas fa-plus timer-icon" id ="break-increment"></i>
-                        <div class = "time-length" id = "break-time"> 
-                        </div>
-                        <i class="fas fa-minus timer-icon" id ="break-decrement"></i>
+                <h6 class = "timer-title">Break Time</h6>
+
+                <div class = "controls" id = "break-controls">
+                    <i class="fas fa-plus timer-icon" id ="break-increment"></i>
+                    <div class = "time-length" id = "break-time"> 
                     </div>
-
+                    <i class="fas fa-minus timer-icon" id ="break-decrement"></i>
                 </div>
+
+            </div>
                 
+        </div>
+
+        <div class = "timer-box" id = "time-left-box">
+
+            <h6 class = "timer-title" id = "session-level"></h6>
+
+            <p class = "time-left-length" id = "session-length"> </p>
+
+            <div id = "time-controls">
+                <i class="fas fa-play timer-icon" id = "start-stop"></i>
+                <i class="fas fa-pause timer-icon" id = "pause"></i>
+                <i class="fas fa-undo timer-icon" id = "reset"></i>
             </div>
-
-            <div class = "timer-box" id = "time-left-box">
-
-                    <h6 class = "timer-title" id = "session-level"></h6>
-
-                        <p class = "time-left-length" id = "session-length"> </p>
-
-                        <div id = "time-controls">
-                            <i class="fas fa-play timer-icon" id = "start-stop"></i>
-                            <i class="fas fa-pause timer-icon" id = "pause"></i>
-                            <i class="fas fa-undo timer-icon" id = "reset"></i>
-                        </div>
-
                     
-            </div>
+        </div>
     
     </div>
 

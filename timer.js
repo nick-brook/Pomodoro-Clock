@@ -12,31 +12,30 @@ const audioObj = new Audio('https://raw.githubusercontent.com/freeCodeCamp/cdn/m
 
 var timerChange;
 
-
-
-
 function initialize() {
 
     // initialize timeObj
-        timeObj.breakTime = 5;
-        timeObj.workTime = 25;
-        timeObj.breakTimeLeft = 300;
-        timeObj.workTimeLeft = 1500;
-        timeObj.work = true;
-        timeObj.play = true;
+    timeObj.breakTime = 5;
+    timeObj.workTime = 25;
+    timeObj.breakTimeLeft = 300;
+    timeObj.workTimeLeft = 1500;
+    timeObj.work = true;
+    timeObj.play = true;
 
     // stop the beep if playing
     audioObj.pause();
 
-// update display
-    updateDisp(timeObj)
-    document.getElementById("session-length").style.color = "black"
+    // update display
+    updateDisp(timeObj);
+    document.getElementById("session-length").style.color = "black";
 }
 
 // update display function
 function updateDisp(locTimeObj) {
-    
-    var dispStr = ""
+
+    var dispStr = "";
+    var minutes = 0;
+    var seconds = 0;
 
     // update break and work time
     document.getElementById("work-time").innerHTML = locTimeObj.workTime;
@@ -52,14 +51,15 @@ function updateDisp(locTimeObj) {
         document.getElementById("session-level").innerHTML = "Break Time Left"
     }
 
+    // change colour if < 1 min to go 
     changeColour(dispStr)
 
     // define minutes and seconds left and dipslay in mm:ss format
-    var minutes = Math.floor(dispStr / 60);
-    minutes = (minutes < 10 ? "0" + minutes : minutes);
+    minutes = Math.floor(dispStr / 60);
+    minutes = minutes < 10 ? "0" + minutes : minutes;
 
-    var seconds = (dispStr % 60) ;
-     seconds = (seconds < 10 ? "0" + seconds : seconds);
+    seconds = dispStr % 60 ;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
 
     dispStr = minutes + ":" + seconds
 
@@ -67,7 +67,7 @@ function updateDisp(locTimeObj) {
     
 }
 
-// increment / decrement work or break time
+// increment / decrement work or break time convert time left to seconds
 function incDec(inc,wrkBrk) {
 
     if (wrkBrk){
@@ -79,9 +79,7 @@ function incDec(inc,wrkBrk) {
         timeObj.breakTimeLeft = timeObj.breakTime * 60;
     }
 
-
     updateDisp(timeObj)
-
 }
 
 // check it is valid increment
@@ -107,6 +105,7 @@ function validIncDec(inc,time) {
     }
 }
 
+// play function interval every second
 function playTimer(){
 
     timeObj.play = true;
@@ -123,8 +122,7 @@ function updateTimeLeft(){
         timeObj.breakTimeLeft = timeObj.breakTimeLeft - 1;
     }
 
-  // when timer finshed
-
+  // when timer finshed play beep, switch from break to work or vice versa
     if (timeObj.workTimeLeft < 0 && timeObj.work){
             audioObj.play();
             timeObj.work = false;

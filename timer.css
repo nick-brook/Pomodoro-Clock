@@ -11,24 +11,22 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-}
+        }
 
 #pomodoro{
         max-width: 400px;
-}
+        }
 
 .controls{
         display: flex;
         justify-content: space-around;
-       }
+        }
 
 .timer-boxes{
         display: flex;
         width:90%;
         justify-content:space-between;
-        
-        
-}
+        }
 
 .timer-box{
         display: flex;
@@ -39,32 +37,32 @@
         padding: 10px 20px 10px 20px;
         align-items: center;
         background-color: rgb(250, 249, 249);
-}
+        }
 
 .controls{
         display: flex;
         flex-direction: row;
         align-items: center;
-}
+        }
 
 .time-length{
         font-weight: 700;
         font-size: large;
         padding: 0px 10px 0px 10px;
-}
+        }
 
 .timer-icon{
         font-weight: 700;
         font-size: large;
-}
+        }
 
 .time-left-length{
         font-weight: 700;
         font-size: xx-large;
-}
+        }
 
 #time-controls{
         width:100%;
         display: flex;
         justify-content: space-around;
-}
+        }
